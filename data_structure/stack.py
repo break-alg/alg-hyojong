@@ -20,3 +20,9 @@ class Stack:
         self.last = self.last.next
         return item
 
+    def empty(self):
+        if self.last is None:
+            return True
+        else:
+            return False
+
