@@ -1,5 +1,6 @@
 # 네이버 웹툰 인턴
 # 라이브 코딩 테스트 문제
+# 스택 2개를 사용하여 큐 구현
 class StackToQueue:
     def __init__(self):
         self.input = []

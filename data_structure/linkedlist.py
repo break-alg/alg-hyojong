@@ -1,4 +1,4 @@
-# 연결 리스트 구현
+# 단일 연결 리스트 구현
 #
 # 연결 리스트에 값을 저장할 노드 클래스
 class Node:
@@ -104,6 +104,7 @@ class SinglyLinkedList:
             for i in range(0, self.size):
                 print(node.item)
                 node = node.next
+
 
 if __name__ == "__main__":
     sl = SinglyLinkedList()
