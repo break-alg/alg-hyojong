@@ -13,61 +13,54 @@ class SinglyLinkedList:
         self.head = None
         self.size = 0
 
-    def firstInsert(self, item):
+    def append(self, item):
         if self.size == 0:
-            newNode = Node(item, None)
-            self.head = newNode
+            self.head = Node(item, None)
             self.size += 1
         else:
-            newNode = Node(item, None)
-            newNode.next = self.head
-            self.head = newNode
+            node = self.head
+            while node.next != None:
+                node = node.next
+            node.next = Node(item, None)
             self.size += 1
 
-    def middleInsert(self, item, index):
+    def insertAtIndex(self, item, index):
         if self.size == 0:
             print("List is empty!!")
-        elif 0 > index > self.size:
+        elif 0 > index or index > self.size:
             print("Wrong index!!")
+        elif index == 0:
+            nNode = Node(item, self.head)
+            self.head = nNode
+            self.size += 1
         else:
-            node = self.head
-            for i in range(0, self.size):
+            pNode = self.head
+            for i in range(1, self.size + 1):
                 if i == index:
-                    newNode = Node(item, node.next)
-                    node.next = newNode
+                    nNode = Node(item, pNode.next)
+                    pNode.next = nNode
                     self.size += 1
                     break
-                else:
-                    node = node.next
-
-    def lastInsert(self, item):
-        if self.size == 0:
-            print("List is empty!!")
-        else:
-            node = self.head
-            for i in range(0, self.size):
-                if i == (self.size - 1):
-                    newNode = Node(item, None)
-                    node.next = newNode
-                    self.size += 1
-                    break
-                else:
-                    node = node.next
+                pNode = pNode.next
 
     def remove(self, index):
         if self.size == 0:
             print("List is empty!!")
-        elif 0 > index > self.size:
+        elif 0 > index or index > self.size - 1:
             print("Wrong index!!")
+        elif index == 0:
+            rNode = self.head
+            self.head = rNode.next
+            self.size -= 1
         else:
-            node = self.head
-            for i in range(0, self.size):
+            pNode = self.head
+            for i in range(1, self.size):
+                rNode = pNode.next
                 if i == index:
-                    removeNode = node
-                    node
+                    pNode.next = rNode.next
+                    self.size -= 1
                     break
-                node = node.next
-        return None
+                pNode = rNode
 
     def searchIndex(self, item):
         index = -1
@@ -78,7 +71,7 @@ class SinglyLinkedList:
             node = self.head
             for i in range(0, self.size):
                 if node.item == item:
-                    index = i + 1
+                    index = i
                     break
                 node = node.next
 
@@ -111,3 +104,22 @@ class SinglyLinkedList:
             for i in range(0, self.size):
                 print(node.item)
                 node = node.next
+
+if __name__ == "__main__":
+    sl = SinglyLinkedList()
+    sl.append(1)
+    sl.append(2)
+    sl.append(3)
+    sl.print()
+    print()
+    sl.remove(0)
+    sl.remove(2)
+    sl.print()
+    print()
+    sl.insertAtIndex(3, 1)
+    sl.insertAtIndex(0, 3)
+    sl.print()
+    print(sl.getItem(3))
+    print(sl.searchIndex(0))
+    sl.clear()
+    sl.print()
