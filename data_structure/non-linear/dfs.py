@@ -1,4 +1,5 @@
 # 깊이 우선 탐색(Depth First Search) 구현
+# 대부분의 그래프 탐색 문제에서 사용
 #
 # 재귀 함수 사용한 DFS
 def recursive_dfs(graph, v, discovered=[]):
@@ -10,7 +11,7 @@ def recursive_dfs(graph, v, discovered=[]):
 
 
 # 반복과 스택을 사용한 DFS
-def iterative_dfs(start_v):
+def iterative_dfs(graph, start_v):
     discovered = []
     stack = [start_v]
     while stack:
@@ -33,11 +34,11 @@ graph = {
 }
 
 print(recursive_dfs(graph, 1))
-print(iterative_dfs(1))
+print(iterative_dfs(graph, 1))
 
 # 출력 결과
 # [1, 2, 5, 6, 7, 3, 4]
 # [1, 4, 3, 5, 7, 6, 2]
 #
-# 출력 결과가 다른 이유는 stack을 사용할 때 LIFO 방식이기 때문에
+# 출력 결과가 다른 이유는 stack을 사용할 때 LIFO 방식
 # 재귀와는 반대로 시작하기 때문
