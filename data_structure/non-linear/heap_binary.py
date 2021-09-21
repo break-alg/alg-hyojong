@@ -1,5 +1,5 @@
 # 이진 힙 구현
-
+# 왠만한 파이썬 문제에서는 heapq 사용
 class BinaryHeap(object):
     def __init__(self):
         self.items = [None]
