@@ -1,5 +1,5 @@
 # 셔틀버스
-# [파이썬 알고리즘 인터뷰 | p.6691] 참조
+# [파이썬 알고리즘 인터뷰 | p.691] 참조
 def solution(n, t, m, timeTable):
     answer = ''
 
